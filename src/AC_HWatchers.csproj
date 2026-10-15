@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>AC_HWatchers</AssemblyName>
+    <RootNamespace>AC_HWatchers</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Version>1.0.0</Version>
+    <DebugType>none</DebugType>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- Aicomi's BepInEx folder (after BepInEx has run once). Override with -p:GameDir=... -->
+    <GameDir Condition="'$(GameDir)' == ''">C:\Program Files\Aicomi\BepInEx</GameDir>
+    <InteropDir Condition="'$(InteropDir)' == ''">$(GameDir)/interop</InteropDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="$(GameDir)/core/0Harmony.dll" Private="false" />
+    <Reference Include="$(GameDir)/core/BepInEx.Core.dll" Private="false" />
+    <Reference Include="$(GameDir)/core/BepInEx.Unity.IL2CPP.dll" Private="false" />
+    <Reference Include="$(GameDir)/core/BepInEx.Unity.Common.dll" Private="false" />
+    <Reference Include="$(GameDir)/core/Il2CppInterop.Runtime.dll" Private="false" />
+    <Reference Include="$(GameDir)/core/Il2CppInterop.Common.dll" Private="false" />
+    <Reference Include="$(InteropDir)/*.dll" Private="false" />
+  </ItemGroup>
+</Project>
